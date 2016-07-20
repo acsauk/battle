@@ -13,7 +13,18 @@ end
 feature "Hit points" do
   scenario "displaying player 2" do
     sign_in_and_play
-    expect(page).to have_content("Zeeshan HP: 10")
+    expect(page).to have_content("Zeeshan HP: 60")
+  end
+
+
+  # As Player 1,
+  # So I can start to win a game of Battle,
+  # I want my attack to reduce Player 2's HP by 10
+
+  scenario "reduce player 2 HP by 10" do
+    sign_in_and_play
+    click_link("Attack")
+    expect(page).to have_content("Zeeshan HP: 50")
   end
 end
 

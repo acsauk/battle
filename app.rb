@@ -1,5 +1,6 @@
 require 'sinatra/base'
-require 'player.rb'
+require './lib/player'
+require './lib/game'
 
 class Battle < Sinatra::Base
 
@@ -21,10 +22,9 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    @first_player = $first_player.name
-    @second_player = $second_player.name
-    $second_player.attack
-    @hp = $second_player.hp
+    @first_player = $first_player
+    @second_player = $second_player
+    Game.new.attack(@second_player)
     erb :attack
   end
 

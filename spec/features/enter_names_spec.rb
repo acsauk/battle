@@ -1,14 +1,8 @@
 
 feature "entering names" do
   scenario "user_enters_name" do
-    visit "/"
-
-    fill_in :first_player, with: "Alex"
-    fill_in :second_player, with: "Zeeshan"
-    click_button "submit"
-
+    sign_in_and_play
     expect(page).to have_text("Alex vs. Zeeshan")
-
   end
 end
 
@@ -18,13 +12,7 @@ end
 
 feature "Hit points" do
   scenario "displaying player 2" do
-    visit "/"
-
-    fill_in :first_player, with: "Alex"
-    fill_in :second_player, with: "Zeeshan"
-    click_button "submit"
-
+    sign_in_and_play
     expect(page).to have_content("Zeeshan HP: 10")
-
   end
 end

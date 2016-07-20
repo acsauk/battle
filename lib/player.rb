@@ -1,6 +1,6 @@
 class Player
   HP = 60
-  attr_reader :player
+  attr_reader :player, :name, :receive_damage
   attr_accessor :hp
 
   def initialize(player)

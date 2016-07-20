@@ -1,4 +1,3 @@
-#require 'app'
 
 feature "entering names" do
   scenario "user_enters_name" do

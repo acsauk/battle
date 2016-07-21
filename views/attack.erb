@@ -6,11 +6,19 @@
   </head>
   <body>
     <div>
-      <%= @first_player.name %> attacks <%= @second_player.name %>
+      <% if $game.current_player == @second_player.name %>
+      <%= @first_player.name %> attacks <%= @second_player.name %><br>
+      <% else %>
+      <%= @second_player.name %> attacks <%= @first_player.name %><br>
+      <% end %>
+      <%= @first_player.name %> HP: <%= @first_player.hp %><br>
       <%= @second_player.name %> HP: <%= @second_player.hp %>
     </div>
     <div>
-      <a href="/play">Change turn</a>
+      <form action="/play">
+        <input type="submit" value="Change turn">
+      </form>
+      <!-- <a href="/play">Change turn</a> -->
     </div>
   </body>
 </html>

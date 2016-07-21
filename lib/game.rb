@@ -9,6 +9,14 @@ class Game
     @current_player = first_player.name
   end
 
+  def opponent
+   if @current_player == first_player.name
+     second_player
+   else
+     first_player
+   end
+  end
+
   def attack(player)
     player.receive_damage
   end

@@ -19,10 +19,10 @@ class Battle < Sinatra::Base
     erb :play
   end
 
-  get '/attack' do
+  post '/attack' do
     @first_player = $game.first_player
     @second_player = $game.second_player
-    $game.attack(@second_player)
+    $game.attack($game.opponent)
     $game.switch_player
     erb :attack
   end

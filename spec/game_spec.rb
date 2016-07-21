@@ -17,6 +17,13 @@ describe Game do
     end
   end
 
+  describe '#attack' do
+    it "reduces the player's hp" do
+      expect(first_player).to receive(:receive_damage)
+      game.attack(first_player)
+    end
+  end
+
   describe '#switch_player' do
     it "switches the player" do
       game.switch_player

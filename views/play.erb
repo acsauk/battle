@@ -6,13 +6,14 @@
   </head>
   <body>
     <div>
-      It is now <%= $game.current_player %>'s turn
+      It is now <%= $game.current_player %>'s turn<br>
+      <%= @first_player.name %> vs. <%= @second_player.name %><br>
+      <%= @first_player.name %> HP: <%= @first_player.hp %><br>
+      <%= @second_player.name %> HP: <%= @second_player.hp %><br>
 
-      <%= @first_player.name %> vs. <%= @second_player.name %>
-
-      <%= @second_player.name %> HP: <%= @second_player.hp %>
-
-      <a href= "/attack"> Attack </a>
+      <form action="/attack" method="post">
+        <input type="submit" value="Attack">
+      </form>
     </div>
   </body>
 </html>

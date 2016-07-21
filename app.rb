@@ -23,6 +23,7 @@ class Battle < Sinatra::Base
     @first_player = $game.first_player
     @second_player = $game.second_player
     $game.attack(@second_player)
+    $game.switch_player
     erb :attack
   end
 

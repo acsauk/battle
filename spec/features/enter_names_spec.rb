@@ -2,7 +2,7 @@
 feature "entering names" do
   scenario "user_enters_name" do
     sign_in_and_play
-    expect(page).to have_text("Alex vs. Zeeshan")
+    expect(page).to have_text("Alex vs. Ben")
   end
 end
 
@@ -13,7 +13,7 @@ end
 feature "Hit points" do
   scenario "displaying player 2" do
     sign_in_and_play
-    expect(page).to have_content("Zeeshan HP: 60")
+    expect(page).to have_content("Ben HP: 60")
   end
 
 
@@ -24,7 +24,7 @@ feature "Hit points" do
   scenario "reduce player 2 HP by 10" do
     sign_in_and_play
     click_link("Attack")
-    expect(page).to have_content("Zeeshan HP: 50")
+    expect(page).to have_content("Ben HP: 50")
   end
 end
 
@@ -36,6 +36,20 @@ feature "Attack" do
   scenario "attacking player_2" do
     sign_in_and_play
     click_link("Attack")
-    expect(page).to have_content("Alex attacks Zeeshan")
+    expect(page).to have_content("Alex attacks Ben")
+  end
+end
+
+# As two Players,
+# So we can continue our game of Battle,
+# We want to switch turns
+
+feature "Switch players" do
+  scenario "change from player_1 to player_2" do
+    sign_in_and_play
+    click_link("Attack")
+    has_link?("Change turn")
+    click_link("Change turn")
+    expect(page).to have_content("It is now Ben's turn")
   end
 end

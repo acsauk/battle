@@ -5,3 +5,8 @@ def sign_in_and_play
   click_button "submit"
   click_button("Attack")
 end
+
+def defeat_enemy
+  find_button("Change turn").click
+  click_button("Attack")
+end

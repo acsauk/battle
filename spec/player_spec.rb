@@ -19,5 +19,10 @@ describe Player do
     it "it reduces the player's health-points" do
       expect{ player.receive_damage }.to change{ player.hp }.by -10
     end
+
+    it "changes is_alive to false when player HP is 0" do
+      6.times{ player.receive_damage }
+      expect(player.is_alive).to eq(false)
+    end
   end
 end

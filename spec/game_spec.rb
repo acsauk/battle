@@ -30,4 +30,19 @@ describe Game do
       expect(game.current_player).to eq second_player.name
     end
   end
+
+  describe "#loser" do
+    it "returns the name of the loser" do
+      allow(first_player).to receive(:is_alive).and_return(false)
+
+      expect(game.loser).to eq "#{first_player.name} loses the game :("
+    end
+
+    it "returns the correct name" do
+      allow(first_player).to receive(:is_alive).and_return(true)
+      allow(second_player).to receive(:is_alive).and_return(false)
+
+      expect(game.loser).to eq "#{second_player.name} loses the game :("
+    end
+  end
 end
